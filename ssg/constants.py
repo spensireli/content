@@ -6,6 +6,7 @@ import os
 import time
 
 product_directories = [
+    'amzn2',
     'chromium',
     'debian9', 'debian10',
     'example',
@@ -153,6 +154,7 @@ PKG_MANAGER_TO_CONFIG_FILE = {
 }
 
 FULL_NAME_TO_PRODUCT_MAPPING = {
+    "Amazon Linux 2": "amzn2",
     "Chromium": "chromium",
     "Debian 9": "debian9",
     "Debian 10": "debian10",
@@ -195,7 +197,7 @@ REF_PREFIX_MAP = {
 }
 
 MULTI_PLATFORM_LIST = ["rhel", "fedora", "rhosp", "rhv", "debian", "ubuntu",
-                       "wrlinux", "opensuse", "sle", "ol", "ocp", "rhcos", "example"]
+                       "wrlinux", "opensuse", "sle", "ol", "ocp", "rhcos", "amzn", "example"]
 
 MULTI_PLATFORM_MAPPING = {
     "multi_platform_debian": ["debian9", "debian10"],
@@ -211,6 +213,7 @@ MULTI_PLATFORM_MAPPING = {
     "multi_platform_sle": ["sle12", "sle15"],
     "multi_platform_ubuntu": ["ubuntu1604", "ubuntu1804", "ubuntu2004"],
     "multi_platform_wrlinux": ["wrlinux8", "wrlinux1019"],
+    "multi_platform_amzn": ["amzn2"],
 }
 
 RHEL_CENTOS_CPE_MAPPING = {
@@ -356,6 +359,7 @@ XCCDF_PLATFORM_TO_PACKAGE = {
 
 # _version_name_map = {
 MAKEFILE_ID_TO_PRODUCT_MAP = {
+    'amzn': 'Amazon Linux',
     'chromium': 'Google Chromium Browser',
     'fedora': 'Fedora',
     'firefox': 'Mozilla Firefox',

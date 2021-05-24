@@ -63,6 +63,7 @@ option(SSG_PRODUCT_DEFAULT "If enabled, all default release products will be bui
 # Products to build content for. These generally correspond to directories in
 # the root of this project. Note that the example product is always disabled
 # unless explicitly asked for.
+option(SSG_PRODUCT_AMZN2 "If enabled, the Amazon Linux 2 SCAP content will be built" ${SSG_PRODUCT_DEFAULT})
 option(SSG_PRODUCT_CHROMIUM "If enabled, the Chromium SCAP content will be built" ${SSG_PRODUCT_DEFAULT})
 option(SSG_PRODUCT_DEBIAN9 "If enabled, the Debian 9 SCAP content will be built" ${SSG_PRODUCT_DEFAULT})
 option(SSG_PRODUCT_DEBIAN10 "If enabled, the Debian 10 SCAP content will be built" ${SSG_PRODUCT_DEFAULT})
@@ -255,6 +256,7 @@ endif()
 message(STATUS " ")
 
 message(STATUS "Products:")
+message(STATUS "Amazon Linux 2: ${SSG_PRODUCT_AMZN2}")
 message(STATUS "Chromium: ${SSG_PRODUCT_CHROMIUM}")
 message(STATUS "Debian 9: ${SSG_PRODUCT_DEBIAN9}")
 message(STATUS "Debian 10: ${SSG_PRODUCT_DEBIAN10}")
@@ -321,6 +323,9 @@ ssg_build_bash_remediation_functions()
 
 ssg_build_man_page()
 
+if (SSG_PRODUCT_CHROMIUM)
+    add_subdirectory("amzn2")
+endif()
 if (SSG_PRODUCT_CHROMIUM)
     add_subdirectory("chromium")
 endif()
